@@ -18,7 +18,7 @@ class HarryPotter:
                 score -= 1
                 print(f"Lord Voldemort word is: {lord_voldemort_word}.")
 
-        if score >= 2:
+        if score >= 1:
             print("You win")
         else:
             print("You lose")
