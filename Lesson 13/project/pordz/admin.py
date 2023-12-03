@@ -20,15 +20,6 @@ class Manufacture(admin.ModelAdmin):
     inlines = [CarAdminInline]
 
 
-# @admin.register(Car)
-# class AdminCar(admin.ModelAdmin):
-#     list_display = ("id", "name", "hp", "tire", "created_at")
-#     list_display_links = ("id", "name", "hp", "tire")
-#     list_filter = ("name", "hp")
-#     search_fields = ("name", "hp")
-#     prepopulated_fields = {"slug": ("name",)}
-
-
 @admin.register(Car)
 class CarAdmin(admin.ModelAdmin):
     list_display = ("id", "name", "hp", "position", "created_at", "get_photo", "status")
@@ -47,7 +38,6 @@ class CarAdmin(admin.ModelAdmin):
             "fields": ("manufacture", "created_at", "status", "hp")
         })
     )
-    prepopulated_fields = {"slug": ("name",)}
 
     def get_photo(self, obj):
         return mark_safe(f'<img src={obj.image.url} width="65" height="40/>"')

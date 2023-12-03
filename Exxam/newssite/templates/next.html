@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- About Start -->
+<div class="container-fluid p-5">
+    <div class="row gx-5">
+        <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 350px;">
+            <div class="position-relative h-100">
+                <img class="position-absolute w-100 h-100 rounded" src="{{ category.img.url }}"
+                     style="object-fit: cover;">
+            </div>
+        </div>
+        <div class="col-lg-7">
+            <div class="mb-4">
+                <h5 class="text-primary text-uppercase">{{ category.name }}</h5>
+            </div>
+            <p class="mb-4">{{ category.created_at }}</p>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+<!-- Class Timetable Start -->
+<div class="container-fluid p-5">
+    <div class="mb-5 text-center">
+        <h1 class="display-3 text-uppercase mb-0">News</h1>
+    </div>
+    <div class="tab-class text-center">
+        <div class="tab-content">
+            <div id="tab-1" class="tab-pane fade show p-0 active">
+                <div class="row g-5">
+                    {% for new in news_all %}
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <a href="{% url 'news_detail' slug=new.slug %}">
+                            <div class="bg-dark rounded text-center py-5 px-3">
+                                <h6 class="text-uppercase text-light mb-3">{{ new.title }}</h6>
+                                <p class="text-uppercase text-secondary mb-0"><img src="{{ new.image.url }}"
+                                                                                   style="width: 53px; height: 36px">
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Class Timetable Start -->
+
+{% endblock %}
+
