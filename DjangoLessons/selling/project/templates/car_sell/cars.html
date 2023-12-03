@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars Catalog</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .car {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 10px;
+            max-width: 220px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .car:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .car img {
+            width: 100%;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .car h2 {
+            margin: 8px 0 4px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .car p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Our Cars Catalog</h1>
+    {% for i in cars %}
+        <div class="car">
+            <img src="{{ i.photo1.url }}" alt="{{ i.title }}">
+            <h2>{{ i.title }}</h2>
+            <p>Price: {{ i.price_of_car }} {{ i.currency_choose }}</p>
+        </div>
+    {% endfor %}
+</body>
+</html>
